@@ -1,0 +1,32 @@
+.checkbox {
+  &__inner {
+    display: inline-flex;
+    cursor: pointer;
+    align-items: center;
+
+    &:last-child {
+      margin-top: 10px;
+    }
+  }
+
+  &__outer {
+    position: relative;
+    border: 1px solid #fff;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__active {
+    position: absolute;
+    background-color: #fff;
+    height: 10px;
+    width: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__text {
+    margin-left: 10px;
+  }
+}
