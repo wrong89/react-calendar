@@ -12,17 +12,13 @@ interface SearchProps {
 const Search: FC<SearchProps> = ({searchIcon, placeholder}) => {
     const {searchValue} = useAppSelector(selectFilter)
     const dispatch = useAppDispatch()
-    const [search, setSearch] = useState<string>("")
     const submitHandle = (event: React.ChangeEvent<HTMLFormElement>) => {
         console.log("submit", searchValue);
         event.preventDefault()
     }
-    const debounce = useDebounce(() => {
-        dispatch(updateSearch(search))
-    }, 300)
 
     const changeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value)
+        dispatch(updateSearch(event.target.value))
     }
 
 
@@ -30,7 +26,7 @@ const Search: FC<SearchProps> = ({searchIcon, placeholder}) => {
         <form onSubmit={submitHandle} className={cl.search}>
             <div className={cl.search__inner}>
                 <input
-                    value={search}
+                    value={searchValue}
                     onChange={e => changeHandle(e)}
                     placeholder={placeholder}
                     className={cl.search__input}

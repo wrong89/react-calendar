@@ -11,12 +11,25 @@ export function saveAsFile(fileName: string, data = "", postfix = (+(new Date())
   document.body.removeChild(lnk);
 }
 
+export function exportHistory() {
+  const file = localStorage.getItem("editedDays")?.toString()
+  if(file && file !== "[]") {
+    saveAsFile("calendar.json", file)
+  } else {
+    console.log("localstorage is empty");
+  }
+}
 
-// вариант сохранения данных в localstorage без потери сохранненых данных в localstorage до импорта
-export function importFile(fileName: string) {
-  const oldData = localStorage.getItem("editedDays")
+// Не кроссбраузерно
+export async function importFile() {
+  try {
+    let fileHandle
+    [fileHandle] = await window.showOpenFilePicker()
+    const file = await fileHandle.getFile()
+    const contents = await file.text()
 
-  if(oldData) {
-    localStorage.setItem("editedDays", JSON.stringify([JSON.parse(oldData), fileName]))
+    return contents
+  } catch (error) {
+    console.log(error);
   }
 }

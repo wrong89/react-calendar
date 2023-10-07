@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import {useEffect, useState} from 'react'
 
-export function useDebounce(callback: () => void, delay: number) {
-  // Переписать так, чтобы useEffect не использовался, так как переиспользовать такой хук будет сложно
+export function useDebounce<T>(value: T, delay?: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+
   useEffect(() => {
-    const timer = setTimeout(callback, delay)
+    const timer = setTimeout(() => setDebouncedValue(value), delay || 500)
 
     return () => {
       clearTimeout(timer)
     }
-  }, [callback, delay])
+  }, [value, delay])
+
+  return debouncedValue
 }

@@ -221,42 +221,7 @@ a {
     justify-content: center;
   }
 
-  .slider__date {
+  slider__date {
     padding: 0 20px;
-  }
-
-  &__nav {
-    display: flex;
-    margin: 20px 10px;
-  }
-}
-
-.error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-
-  &__content {
-    text-align: center;
-  }
-
-  &__status {
-    font-size: 100px;
-  }
-
-  &__info {
-    margin: 10px;
-  }
-
-  &__btn {
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #fff;
-    color: #0e0e0e;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 10px 20px;
   }
 }

@@ -4,7 +4,7 @@ import {RootState} from "../store";
 import {ICalendarDay, IDate} from "../../types/types";
 import {countingDaysOfMonth} from "../../utils/date";
 
-type updateDay = {
+type updateDayType = {
     day: number
     month: number
 }
@@ -48,7 +48,7 @@ export const daysSlice = createSlice({
             }
         },
 
-        updateDay(state, action: PayloadAction<updateDay>) {
+        updateDay(state, action: PayloadAction<updateDayType>) {
             const findDay = state.days.find(item => item.month === action.payload.month && item.day === action.payload.day)
             const findEditedDay = state.editedDays.find(item => item.month === action.payload.month && item.day === action.payload.day)
 
@@ -67,8 +67,6 @@ export const daysSlice = createSlice({
                 editedDay.text = action.payload.text
                 editedDay.highlighted = action.payload.highlighted
                 editedDay.repeat = action.payload.repeat
-                // if(!editedDay.text && !editedDay.highlighted)
-                //     state.editedDays = state.editedDays.filter(item => item.id !== editedDay.id)
 
             } else if (!action.payload.highlighted && action.payload.text === "") {
                 return;
@@ -77,18 +75,22 @@ export const daysSlice = createSlice({
             }
         },
 
+        setEditedDays(state, action: PayloadAction<ICalendarDay[]>) {
+            state.editedDays = action.payload
+        },
+
         deleteEditedDay(state, action: PayloadAction<number>) {
             state.editedDays = state.editedDays.filter(item => item.id !== action.payload)
         },
 
         clearEditedDays(state) {
             state.editedDays = []
-        },
+        }
     }
 })
 
 export const selectDays = (state: RootState) => state.days
 
-export const {updateDays, updateDay, addEditedDay, deleteEditedDay, clearEditedDays} = daysSlice.actions
+export const {updateDays, updateDay, addEditedDay, deleteEditedDay, clearEditedDays, setEditedDays} = daysSlice.actions
 
 export default daysSlice.reducer

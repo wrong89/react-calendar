@@ -36,7 +36,7 @@ const DatePicker: FC<DatePickerProps> = ({ showDatePicker }) => {
 
     const changeDate = (item: IDatePickerItem, operation: string) => {
         const count = countingDaysOfMonth(currentMonth, currentYear)
-        // Не использовать eval()
+
         if (item.title === datePickerItems[0].title) {
             dispatch(updateYear(eval(`${currentYear} ${operation} 1`)))
         }
@@ -67,7 +67,7 @@ const DatePicker: FC<DatePickerProps> = ({ showDatePicker }) => {
         }
 
         if(item.title === "Месяц" && +event.target.value > 12) {
-
+            
         }
 
         // if (item.title !== "Год" && event.target.value.length >= 2 && next) {
