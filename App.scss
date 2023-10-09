@@ -221,7 +221,35 @@ a {
     justify-content: center;
   }
 
-  slider__date {
-    padding: 0 20px;
+  //slider__date {
+  //  padding: 0 20px;
+  //}
+}
+
+.error {
+  margin-top: 300px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__status {
+    font-size: 100px;
+  }
+
+  &__info {
+    margin: 10px 0;
+  }
+  
+  &__btn {
+    font-size: 14px;
+    background-color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
   }
 }
