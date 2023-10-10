@@ -5,7 +5,7 @@ import Checkbox from "./UI/Checkbox/Checkbox";
 import {selectCalendar} from "../store/slices/calendarSlice";
 import {selectModal, toggleModal} from "../store/slices/modalSlice";
 import {useAppDispatch, useAppSelector} from "../hooks/useStore";
-import {addEditedDay, selectDays, updateDay} from "../store/slices/daysSlice";
+import {addEditedDay, updateDay} from "../store/slices/daysSlice";
 import {ICalendarDay} from "../types/types";
 
 type checkboxType = {
@@ -17,14 +17,13 @@ const ModalForm = () => {
     const [value, setValue] = useState<string>("")
     const [checkActive, setCheckActive] = useState<checkboxType>({highlighted: false, repeat: false})
     const {currentMonth, currentYear} = useAppSelector(selectCalendar)
-    const {editedDays} = useAppSelector(selectDays)
     const {triggerDay} = useAppSelector(selectModal)
     const dispatch = useAppDispatch()
     const inputRef = useRef<HTMLInputElement>(null)
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         const editedDaysTemplate: ICalendarDay = {
-            id: editedDays.length,
+            id: triggerDay + currentMonth + currentYear,
             text: value,
             highlighted: checkActive.highlighted,
             day: triggerDay,

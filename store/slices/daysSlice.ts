@@ -30,10 +30,11 @@ export const daysSlice = createSlice({
             state.days = []
 
             for (let i = 0; i < daysCount; i++) {
-                const dayTemplate = {id: i, day: i + 1, highlighted: false, text: "", month, repeat: false, year}
+                const currentDay = i + 1
+                const dayTemplate = {id: currentDay + month + year, day: currentDay, highlighted: false, text: "", month, repeat: false, year}
                 const editedDay = state.editedDays.find(item => {
-                    if (item.day === i + 1 && month === item.month && item.repeat) return item
-                    if (item.day === i + 1 && month === item.month && year === item.year) return item
+                    if (item.day === currentDay && month === item.month && item.repeat) return item
+                    if (item.day === currentDay && month === item.month && year === item.year) return item
                 })
 
                 if (editedDay) {
