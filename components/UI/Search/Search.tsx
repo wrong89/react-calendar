@@ -1,8 +1,8 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useRef} from 'react';
 import cl from "./Search.module.scss"
-import {useAppDispatch, useAppSelector} from "../../../hooks/useStore";
-import {updateSearch, selectFilter} from "../../../store/slices/filterSlice";
-import { useDebounce } from '../../../hooks/useDebounce';
+import {useAppDispatch} from "../../../hooks/useStore";
+import {updateSearch} from "../../../store/slices/filterSlice";
+import {useDebounce} from '../../../hooks/useDebounce';
 
 interface SearchProps {
     searchIcon: string
@@ -10,24 +10,23 @@ interface SearchProps {
 }
 
 const Search: FC<SearchProps> = ({searchIcon, placeholder}) => {
-    const {searchValue} = useAppSelector(selectFilter)
     const dispatch = useAppDispatch()
-    const submitHandle = (event: React.ChangeEvent<HTMLFormElement>) => {
-        console.log("submit", searchValue);
-        event.preventDefault()
-    }
+    const debounce = useDebounce((searchValue: string) => dispatch(updateSearch(searchValue)))
+    const searchRef = useRef<HTMLInputElement>(null)
 
-    const changeHandle = (event: React.ChangeEvent<HTMLInputElement>) => {
-        dispatch(updateSearch(event.target.value))
+    const changeHandle = () => {
+        if (searchRef.current) {
+            debounce(searchRef.current.value);
+        }
     }
 
 
     return (
-        <form onSubmit={submitHandle} className={cl.search}>
+        <div className={cl.search}>
             <div className={cl.search__inner}>
                 <input
-                    value={searchValue}
-                    onChange={e => changeHandle(e)}
+                    ref={searchRef}
+                    onChange={changeHandle}
                     placeholder={placeholder}
                     className={cl.search__input}
                 />
@@ -35,7 +34,7 @@ const Search: FC<SearchProps> = ({searchIcon, placeholder}) => {
                     <img className={cl.search__icon} src={searchIcon} alt="search-icon"/>
                 </button>
             </div>
-        </form>
+        </div>
     );
 };
 
