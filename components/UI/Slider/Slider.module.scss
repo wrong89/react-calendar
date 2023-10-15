@@ -1,23 +1,27 @@
 .slider {
   position: relative;
   background-color: #f2f2f2;
-  padding: 10px;
   color: #000;
-  //font-size: 25px;
-  //font-weight: bold;
-  text-align: center;
-  max-width: 600px;
-  // cursor: pointer;
+  width: 280px;
+  cursor: pointer;
+  margin: auto;
+  
+  span {
+    position: absolute;
+    top: -133px;
+    left: 0;
+    right: 0;
+  }
 
   &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;
   }
 
   &__img {
     cursor: pointer;
-    //margin: 10px;
   }
 
   &__date {
