@@ -25,7 +25,7 @@ export const calendarSlice = createSlice({
 
         updateMonth(state, action: PayloadAction<number>) {
             state.currentMonth = action.payload
-
+            state.currentDay = countingDaysOfMonth(state.currentMonth, state.currentYear)
             if (action.payload < 1) {
                 state.currentMonth = 12
                 state.currentYear -= 1
@@ -48,6 +48,16 @@ export const calendarSlice = createSlice({
             if (state.currentDay < 1) {
                 state.currentDay = count
                 state.currentMonth -= 1
+            }
+
+            if (state.currentMonth < 1) {
+                state.currentMonth = 12
+                state.currentYear -= 1
+            }
+
+            if (state.currentMonth > 12) {
+                state.currentMonth = 1
+                state.currentYear += 1
             }
         }
     }
