@@ -4,7 +4,7 @@ import List from "./List";
 import CalendarDay from "./CalendarDay";
 import {saveTriggerDay, toggleModal} from "../store/slices/modalSlice";
 import {useAppDispatch} from "../hooks/useStore";
-import Slider from "../components/UI/Slider/Slider";
+import Slider from "./UI/Slider/Slider";
 import sliderLeft from "../assets/sliderLeft.svg"
 import sliderRight from "../assets/sliderRight.svg"
 
