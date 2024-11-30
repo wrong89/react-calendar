@@ -1,6 +1,6 @@
 ## Executing via Docker:
 - docker pull wrong21/react-calendar:latest
-- docker run -dp 8000:3000 --name react-example-container react-docker-example:latest
+- docker run -dp 8000:3000 --name react-calendar wrong21/react-calendar:latest
 - Open the: http://localhost:8000
 
 ## Executing manually:
