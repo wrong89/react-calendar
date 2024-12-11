@@ -46,5 +46,4 @@ HistoryPage:
 - React-Router-Dom;
 - Typescript;
 - SCSS;
-- Docker
-
+- Docker;
