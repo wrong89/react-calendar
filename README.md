@@ -30,6 +30,9 @@
 MainPage with marked day and inscripted day:
 ![image](https://github.com/user-attachments/assets/b58e28f5-948b-45d0-ae2c-1a502bd0ba73)
 
+Modal window which contains the marking day and repeating day functional;
+![image](https://github.com/user-attachments/assets/1c2571bf-0b20-4a89-b64d-3f22007b176d)
+
 Opened DataPicker:
 ![image](https://github.com/user-attachments/assets/d31f7d17-2b36-47c3-9177-1f62617c5707)
 
