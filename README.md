@@ -1,5 +1,8 @@
-## Description
+# React-Calendar
 An interactive calendar built with React and Redux Toolkit for managing events and supports adding, deleting, and editing events
+
+# Demo
+You can access the live demo of the react-calendar [here](https://lovely-starship-87fbd1.netlify.app/)
 
 ## Starting via Docker:
 ```
