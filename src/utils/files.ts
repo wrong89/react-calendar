@@ -25,15 +25,15 @@ export function exportHistory() {
 }
 
 // Не кроссбраузерно
-// export async function importFile() {
-//   try {
-//     let fileHandle;
-//     [fileHandle] = await window.showOpenFilePicker();
-//     const file = await fileHandle.getFile();
-//     const contents = await file.text();
+export async function importFile() {
+  try {
+    let fileHandle;
+    [fileHandle] = await window.showOpenFilePicker();
+    const file = await fileHandle.getFile();
+    const contents = await file.text();
 
-//     return contents;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
+    return contents;
+  } catch (error) {
+    console.log(error);
+  }
+}
