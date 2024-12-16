@@ -2,16 +2,19 @@
 An interactive calendar built with React and Redux Toolkit for managing events and supports adding, deleting, and editing events
 
 ## Starting via Docker:
-- docker pull wrong21/react-calendar:latest
-- docker run -dp 8000:3000 --name react-calendar wrong21/react-calendar:latest
-- Open the: http://localhost:8000
+```
+docker pull wrong21/react-calendar:latest
+docker run -dp 8000:3000 --name react-calendar wrong21/react-calendar:latest
+Open the: http://localhost:8000
+```
 
 ## Starting manually:
-- git clone https://github.com/wrong89/react-calendar.git
-- cd react-calendar
-- npm i
-- npm run start
-
+```
+git clone https://github.com/wrong89/react-calendar.git
+cd react-calendar
+npm i
+npm run start
+```
 
 ## Functions:
 
